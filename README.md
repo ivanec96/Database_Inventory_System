@@ -28,9 +28,8 @@ El script SQL no solo define la estructura, sino que incluye reglas de negocio a
 *   Además, se asegura la unicidad de los correos electrónicos mediante la restricción `UNIQUE`.
 * **Cruces Multitabla y Ordenación:** Uso extensivo de `JOIN` para relacionar hasta tres tablas simultáneamente (`participantes`, `inscripcion` y `evento`), permitiendo generar listados históricos ordenados por fecha de inscripción.
 * **Análisis Temporal:** Filtrado de registros utilizando funciones de fecha nativas, como `MONTH(e.fecha) = 10`, para aislar la programación mensual de tipos de eventos específicos.
-* **Agrupación y Filtrado Avanzado (`HAVING`):** Implementación de métricas de negocio usando funciones de agregación (`COUNT`, `GROUP BY`). Por ejemplo, la identificación de los clientes más recurrentes filtrando aquellos con más de dos inscripciones (`HAVING count(i.id_evento) > 2`),
-*   y el recuento de la tasa de uso de cada sala de eventos.
-*   
+* **Agrupación y Filtrado Avanzado (`HAVING`):** Implementación de métricas de negocio usando funciones de agregación (`COUNT`, `GROUP BY`). Por ejemplo, la identificación    de los clientes más recurrentes filtrando aquellos con más de dos inscripciones (`HAVING count(i.id_evento) > 2`),
+  y el recuento de la tasa de uso de cada sala de eventos.
 ## 🚀 Cómo ejecutar este proyecto
 
 1. Clona este repositorio en tu máquina local:
