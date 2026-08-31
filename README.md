@@ -35,3 +35,46 @@ El script SQL no solo define la estructura, sino que incluye reglas de negocio a
 1. Clona este repositorio en tu máquina local:
    ```bash
    git clone https://github.com/ivanec96/Database_Inventory_System.git
+
+
+
+# 🏟️ Event Center Management System (Database Design)
+
+This repository contains the relational design and implementation scripts for the data backend of an event center. The project simulates a real business environment, managing reservations, room availability, clients, and billing.
+
+## 🛠️ Tech Stack
+
+* **Database Engine:** MySQL
+
+* **Language:** SQL
+
+* **Modeling Tools:** MySQL Workbench, Dia
+
+## 📂 Repository Structure
+
+The project is organized following best practices for separating code and documentation:
+
+📁 /sql: Contains the main script (centroEventos.sql) with the database schema (DDL) and test data insertion (DML).
+
+📁 /docs: Includes the design and analysis document, detailing business rules and justifying the relational structure.
+
+📁 /ER model: Includes the Entity-Relationship (ER) and Logical model of the database.
+
+## 💡 Key Business Logic and Queries
+
+The SQL script not only defines the structure but also includes business rules applied directly to the database and key analytical queries:
+
+* **Integrity and Domain Constraints:** CHECK clauses have been implemented in the evento table to ensure logical data consistency, preventing the registration of negative capacities (aforo_max > 0) or events where the end time is earlier than the start time (hora_fin > hora_inicio). Additionally, email uniqueness is ensured using the UNIQUE constraint.
+
+* **Multi-table Joins and Sorting:** Extensive use of JOIN to relate up to three tables simultaneously (participantes, inscripcion, and evento), allowing the generation of historical lists sorted by registration date.
+
+* **Temporal Analysis:** Filtering records using native date functions, such as MONTH(e.fecha) = 10, to isolate the monthly schedule of specific event types.
+
+* **Advanced Grouping and Filtering (HAVING):** Implementation of business metrics using aggregation functions (COUNT, GROUP BY). For example, identifying the most recurring clients by filtering those with more than two registrations (HAVING count(i.id_evento) > 2), and counting the usage rate of each event room.
+
+## 🚀 How to run this project
+
+Clone this repository to your local machine:
+
+## Bash
+git clone https://github.com/ivanec96/Database_Inventory_System.git
